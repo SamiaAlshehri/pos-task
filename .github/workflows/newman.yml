@@ -22,7 +22,7 @@ jobs:
     - name: Install Newman
       run: npm install -g newman newman-reporter-html
     - name: Run Newman tests
-      run: newman run 'newman and postman collection/POS API TEST.postman_collection.json' -e 'newman and postman collection/pos.postman_environment.json' -r html --reporter-html-export newman-report.html
+      run: newman run newman\ and\ postman\ collection/POS\ API\ TEST.postman_collection.json -e newman\ and\ postman\ collection/pos.postman_environment.json -r html --reporter-html-export newman-report.html
     - uses: actions/upload-artifact@v4
       if: always()
       with:
