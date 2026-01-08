@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <form id="checkoutForm">
+        <input type="text" name="customerName" placeholder="Customer Name" required>
+        <button type="submit" class="confirm-sale">Confirm Sale</button>
+    </form>
+    <div class="success-message" style="display:none;">Sale completed successfully!</div>
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/login';
+        }
+
+        document.getElementById('checkoutForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const sale = {
+                customerName: formData.get('customerName'),
+                items: cart,
+                date: new Date().toISOString(),
+                tenantId: 'tenant1'
+            };
+            const response = await fetch('/sales', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(sale)
+            });
+            if (response.ok) {
+                document.querySelector('.success-message').style.display = 'block';
+                localStorage.removeItem('cart');
+                setTimeout(() => {
+                    window.location.href = '/sales-history';
+                }, 2000);
+            } else {
+                alert('Sale failed');
+            }
+        });
+    </script>
+</body>
+</html>

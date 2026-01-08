@@ -62,6 +62,10 @@ GitHub Actions are configured to:
 - Run Newman API tests on pushes and pull requests to `main` and `master` branches.
 - Upload test reports and screenshots as artifacts.
 
+## Demo
+
+Watch the POS system in action: [POS Test Video](pos%20test-٢٠٢٦-٠١-٠٨_٠٩.٢٠.٣٨.mp4)
+
 ## Technologies Used
 
 - Node.js

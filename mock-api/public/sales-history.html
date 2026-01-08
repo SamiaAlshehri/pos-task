@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales History</title>
+</head>
+<body>
+    <h1>Sales History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody class="sales-history">
+        </tbody>
+    </table>
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/login.html';
+        }
+
+        async function loadHistory() {
+            const response = await fetch('/sales', {
+                headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                const sales = await response.json();
+                const tbody = document.querySelector('.sales-history');
+                sales.forEach(sale => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${sale.customerName}</td><td>${sale.date}</td>`;
+                    tbody.appendChild(tr);
+                });
+            }
+        }
+
+        loadHistory();
+    </script>
+</body>
+</html>

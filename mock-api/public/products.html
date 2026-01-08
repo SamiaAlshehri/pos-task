@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <a href="/sales-history">Sales History</a>
+    <div id="products"></div>
+    <button class="checkout">Checkout</button>
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/login.html';
+        }
+
+        async function loadProducts() {
+            const response = await fetch('/products', {
+                headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                const products = await response.json();
+                const container = document.getElementById('products');
+                products.forEach(product => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `<p>${product.name}</p><button data-product-id="${product.id}">Add to Cart</button>`;
+                    container.appendChild(div);
+                });
+            }
+        }
+
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('button[data-product-id]')) {
+                // Simple add, perhaps store in localStorage
+                const productId = e.target.dataset.productId;
+                let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                cart.push(productId);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert('Added to cart');
+            } else if (e.target.classList.contains('checkout')) {
+                window.location.href = '/checkout';
+            }
+        });
+
+        loadProducts();
+    </script>
+</body>
+</html>
