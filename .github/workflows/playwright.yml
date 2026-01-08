@@ -14,24 +14,24 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
-    - name: Install dependencies
-      run: npm ci
+    - name: Install API dependencies
+      run: cd mock-api-withui-test && npm ci
     - name: Install Playwright dependencies
-      run: cd playwright-tests && npm ci
+      run: cd mock-api-withui-test/playwright-tests && npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-      working-directory: playwright-tests
+      working-directory: mock-api-withui-test/playwright-tests
     - name: Run Playwright tests
-      run: cd playwright-tests && npm test
+      run: cd mock-api-withui-test/playwright-tests && npm test
     - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-report
-        path: playwright-tests/playwright-report/
+        path: mock-api-withui-test/playwright-tests/playwright-report/
         retention-days: 30
     - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: test-screenshots
-        path: playwright-tests/screenshots/
+        path: mock-api-withui-test/playwright-tests/screenshots/
         retention-days: 30
