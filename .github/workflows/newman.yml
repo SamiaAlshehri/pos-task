@@ -10,22 +10,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    
     - uses: actions/setup-node@v4
       with:
         node-version: '18'
+
     - name: Install API dependencies
-      run: cd mock-api-withui-test && npm ci
+      run: |
+        cd mock-api-withui-test
+        npm install  # Use install if ci fails on missing lockfiles
+
     - name: Start server
-      run: cd mock-api-withui-test && npm run dev &
+      run: |
+        cd mock-api-withui-test
+        npm run dev & 
+      # We use & to keep it running in the background
+
     - name: Wait for server
-      run: sleep 10 && curl -f http://localhost:4200 || (echo "Server not ready" && exit 1)
+      run: |
+        # This loops for 30 seconds checking if the port is open
+        timeout 30s bash -c 'until curl -s http://localhost:4200; do sleep 2; done' || (echo "Server failed to start" && exit 1)
+
     - name: Install Newman
       run: npm install -g newman newman-reporter-html
+
     - name: Run Newman tests
-      run: newman run newman\ and\ postman\ collection/POS\ API\ TEST.postman_collection.json -e newman\ and\ postman\ collection/pos.postman_environment.json -r html --reporter-html-export newman-report.html
-    - uses: actions/upload-artifact@v4
-      if: always()
+      run: |
+        newman run "newman and postman collection/POS API TEST.postman_collection.json" \
+        -e "newman and postman collection/pos.postman_environment.json" \
+        -r html --reporter-html-export newman-report.html
+
+    - name: Upload Report
+      uses: actions/upload-artifact@v4
+      if: always() 
       with:
         name: newman-report
         path: newman-report.html
-        retention-days: 30
