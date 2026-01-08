@@ -513,7 +513,8 @@
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"disabledSystemHeaders": {
-									"user-agent": true
+									"user-agent": true,
+									"accept": true
 								}
 							},
 							"request": {
@@ -528,7 +529,13 @@
 									]
 								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "raw",
 									"raw": "",
@@ -574,7 +581,8 @@
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"disabledSystemHeaders": {
-									"user-agent": true
+									"user-agent": true,
+									"accept": true
 								}
 							},
 							"request": {
@@ -589,7 +597,13 @@
 									]
 								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "raw",
 									"raw": "",
@@ -661,7 +675,8 @@
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true,
 								"disabledSystemHeaders": {
-									"user-agent": true
+									"user-agent": true,
+									"accept": true
 								}
 							},
 							"request": {
@@ -669,7 +684,13 @@
 									"type": "noauth"
 								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "raw",
 									"raw": "",
@@ -1254,7 +1275,7 @@
 							"response": []
 						},
 						{
-							"name": "sql injection Copy",
+							"name": "sql injection",
 							"event": [
 								{
 									"listen": "test",

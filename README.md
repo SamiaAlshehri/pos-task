@@ -11,7 +11,7 @@ This project is a Point of Sale (POS) system with a mock API and comprehensive t
 
 ## Project Structure
 
-- `mock-api-withui-test/`: Main application with API server, UI, and Playwright tests.
+- `mock-api/`: Main application with API server, UI, and Playwright tests.
 - `newman and postman collection/`: Postman collection and environment files for API testing.
 
 ## Getting Started
@@ -24,7 +24,7 @@ This project is a Point of Sale (POS) system with a mock API and comprehensive t
 ### Running the API Server
 
 ```bash
-cd mock-api-withui-test
+cd mock-api
 npm install
 npm run dev
 ```
@@ -34,7 +34,7 @@ The server will start on http://localhost:4200.
 ### Running Playwright Tests
 
 ```bash
-cd mock-api-withui-test/playwright-tests
+cd mock-api/playwright-tests
 npm install
 npm test
 ```
@@ -45,6 +45,14 @@ npm test
 npm install -g newman newman-reporter-html
 newman run "newman and postman collection/POS API TEST.postman_collection.json" -e "newman and postman collection/pos.postman_environment.json" -r html --reporter-html-export report.html
 ```
+
+### Manual API Testing with Postman
+
+1. Import the collection `newman and postman collection/POS API TEST.postman_collection.json` and environment `newman and postman collection/pos.postman_environment.json` into Postman.
+2. Set the active environment to "pos" (baseurl: http://localhost:4200).
+3. Authenticate by running the "login-valid user" request under "lOGIN" > "Authentication" with credentials `{"username": "admin", "password": "Admin@123"}` to set the access token.
+4. For API endpoints like `/products`, add the header `Accept: application/json` to receive JSON responses (otherwise, the server returns the HTML page).
+5. Use Bearer Token authentication with `{{access_token}}` for protected endpoints.
 
 ## CI/CD
 
