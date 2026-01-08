@@ -1,0 +1,32 @@
+name: Newman API Tests
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Start server
+      run: npm run dev &
+    - name: Wait for server
+      run: sleep 5
+    - name: Install Newman
+      run: npm install -g newman newman-reporter-html
+    - name: Run Newman tests
+      run: newman run "../newman and postman collection/POS API TEST.postman_collection.json" -e "../newman and postman collection/pos.postman_environment.json" -r html --reporter-html-export newman-report.html
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: newman-report
+        path: newman-report.html
+        retention-days: 30

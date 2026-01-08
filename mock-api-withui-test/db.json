@@ -1,0 +1,303 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "$2b$10$aRelu0ubw0XfocKnzSehJO2VR8pN77087DEErBc/EEPlrs9jqYyYG",
+      "fullName": "أحمد محمد",
+      "role": "admin",
+      "tenantId": "tenant1"
+    },
+    {
+      "id": 2,
+      "username": "user1",
+      "password": "$2b$10$C68X9v3QLiezrvW7IdTjju9uu55sNdce7WibZ7tTdIcoYJ03kgm32",
+      "fullName": "سارة علي",
+      "role": "user",
+      "tenantId": "tenant2"
+    },
+    {
+      "id": 3,
+      "username": "user2",
+      "password": "$2b$10$C68X9v3QLiezrvW7IdTjju9uu55sNdce7WibZ7tTdIcoYJ03kgm32",
+      "fullName": "خالد حسين",
+      "role": "user",
+      "tenantId": "tenant1"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "حليب طازج",
+      "price": 2.5,
+      "tenantId": "tenant1"
+    },
+    {
+      "id": 2,
+      "name": "خبز عربي",
+      "price": 1.2,
+      "tenantId": "tenant1"
+    },
+    {
+      "id": 3,
+      "name": "تمر طبيعي",
+      "price": 3.5,
+      "tenantId": "tenant2"
+    },
+    {
+      "id": 4,
+      "name": "جبن أبيض",
+      "price": 4,
+      "tenantId": "tenant2"
+    },
+    {
+      "id": 5,
+      "name": "زيت زيتون",
+      "price": 6.5,
+      "tenantId": "tenant1"
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "productId": 1,
+      "quantity": 3,
+      "total": 7.5,
+      "tenantId": "tenant1",
+      "customerName": "محمد صالح",
+      "date": "2026-01-04T09:30:00Z"
+    },
+    {
+      "id": 2,
+      "productId": 3,
+      "quantity": 2,
+      "total": 7,
+      "tenantId": "tenant2",
+      "customerName": "ليلى أحمد",
+      "date": "2026-01-05T11:45:00Z"
+    },
+    {
+      "id": 3,
+      "productId": 2,
+      "quantity": 5,
+      "total": 6,
+      "tenantId": "tenant1",
+      "customerName": "فاطمة علي",
+      "date": "2026-01-05T14:15:00Z"
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 4
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 5
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 6
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 7
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 8
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 9
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 10
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 11
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 12
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 13
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 14
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 15
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 16
+    },
+    {
+      "productId": 1,
+      "quantity": 2,
+      "total": 5,
+      "tenantId": "tenant1",
+      "customerName": "Test Customer",
+      "date": "2026-01-06T13:49:00Z",
+      "id": 17
+    },
+    {
+      "customerName": "Test Customer UI",
+      "items": [
+        "1",
+        "2"
+      ],
+      "date": "2026-01-07T23:43:27.511Z",
+      "id": 18
+    },
+    {
+      "customerName": "Test Customer UI",
+      "items": [
+        "1",
+        "2"
+      ],
+      "date": "2026-01-07T23:45:01.440Z",
+      "id": 19
+    },
+    {
+      "customerName": "Test Customer UI",
+      "items": [
+        "1",
+        "2"
+      ],
+      "date": "2026-01-07T23:47:44.420Z",
+      "tenantId": "tenant1",
+      "id": 20
+    },
+    {
+      "customerName": "Test Customer UI",
+      "items": [
+        "1",
+        "2"
+      ],
+      "date": "2026-01-07T23:49:38.029Z",
+      "tenantId": "tenant1",
+      "id": 21
+    },
+    {
+      "customerName": "Test Customer UI",
+      "items": [
+        "1",
+        "2"
+      ],
+      "date": "2026-01-08T04:15:52.441Z",
+      "tenantId": "tenant1",
+      "id": 22
+    },
+    {
+      "customerName": "Test Customer UI",
+      "items": [
+        "1",
+        "2"
+      ],
+      "date": "2026-01-08T04:15:55.747Z",
+      "tenantId": "tenant1",
+      "id": 23
+    },
+    {
+      "customerName": "Test Customer UI",
+      "items": [
+        "1",
+        "2"
+      ],
+      "date": "2026-01-08T04:16:00.258Z",
+      "tenantId": "tenant1",
+      "id": 24
+    }
+  ],
+  "salesArchive": [
+    {
+      "id": 101,
+      "productId": 5,
+      "quantity": 1,
+      "total": 6.5,
+      "tenantId": "tenant1",
+      "customerName": "سعيد خالد",
+      "date": "2025-12-25T10:00:00Z"
+    },
+    {
+      "id": 102,
+      "productId": 4,
+      "quantity": 2,
+      "total": 8,
+      "tenantId": "tenant2",
+      "customerName": "نورة حسين",
+      "date": "2025-12-28T13:20:00Z"
+    }
+  ]
+}
